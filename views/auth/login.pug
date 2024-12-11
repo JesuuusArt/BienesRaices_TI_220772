@@ -2,8 +2,8 @@ extends ../layout/index
 
 block contenido
     div.py-10
-        h1.text-4xl.my-10.font-extrabold.text-center Bienes 
-            span.font-normal Raíces  
+        h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
+            span.font-normal.text-primaryText Raíces  
         h2.text-center.text-2xl.font-extrabold= pagina
 
         if errores 
@@ -12,18 +12,18 @@ block contenido
                     p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold= error.msg
 
         .mt-8.mx-auto.max-w-md 
-            .bg-white.py-8.px-4.shadow
+            .bg-formBackground.py-8.px-4.shadow
                 form.space-y-5( method="POST" action="/auth/login") 
                     input(type="hidden" name="_csrf" value= csrfToken)
                     div 
-                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="email") Email
-                        input#email.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu email" type="email" name="email") 
+                        label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="email") Email
+                        input#email.w-full.px-4.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu email" type="email" name="email") 
                     div 
-                        label.block.text-sm.uppercase.text-gray-500.mb-3.font-bold(for="password") Password
-                        input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu password" type="password" name="password")             
+                        label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="password") Password
+                        input#password.w-full.px-4.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu password" type="password" name="password")             
                     div.flex.items-center.justify-between 
-                        a.text-gray-500.text-xs(href="/auth/registro") ¿No tienes cuenta? Crea una
-                        a.text-gray-500.text-xs(href="/auth/olvide-password") Olvide mi Password
+                        a.text-sm.text-secondayText(href="/auth/registro" class="hover:text-action hover:underline") ¿No tienes cuenta? Crea una
+                        a.text-sm.text-secondayText(href="/auth/olvide-password" class="hover:text-action hover:underline") Olvide mi Password
 
 
-                    input(class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 cursor-pointer" type="submit" value="Inicar Sesión")    
+                    input(class="w-full bg-action hover:bg-hoverAction text-white font-bold py-3 cursor-pointer" type="submit" value="Inicar Sesión")    
