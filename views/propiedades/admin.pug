@@ -3,14 +3,14 @@ block styles
     meta(name="csrf-token" content= csrfToken)
 block contenido
     div.py-10
-        h1.text-4xl.my-10.font-extrabold.text-center Bienes 
-            span.font-normal Raíces  
-        h2.text-center.text-2xl.font-extrabold= pagina
+        h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
+            span.font-normal.text-secondaryText Raíces  
+        h2.text-center.text-2xl.font-extrabold.secondaryText= pagina
 
-        a(href="/propiedades/crear" class="rounded py-2 px-10 bg-indigo-600 hover-bg-indigo-700 text-sm font-bold text-center text-white uppercase my-5 inline-block w-full sm:w-auto") Publicar Propiedad
+        a(href="/propiedades/crear" class="rounded py-2 px-10 bg-action hover:bg-hoverAction text-sm font-bold text-center text-white uppercase my-5 inline-block w-full sm:w-auto") Publicar Propiedad
 
         if propiedades.length
-            div(class="bg-white shadow rounded-lg")
+            div(class="bg-formBackgroun shadow rounded-lg")
                 div(class="divide-y divide-gray-200")
                     each propiedad in propiedades 
                         li 
@@ -18,7 +18,7 @@ block contenido
                                 div(class="sm:w-1/4 md:w-1/6") 
                                     img(src=`uploads/${propiedad.imagen}`, alt=`Imagen propiedad ${propiedad.titulo}` class="w-full block")
                                 div(class="sm:w-2/4 md-w-3/6 lg:w-4/6 space-y-3")
-                                    a(class="block text-2xl font-extrabold text-indigo-600 truncate" href=`/propiedad/${propiedad.id}`)= propiedad.titulo
+                                    a(class="block text-2xl font-extrabold text-action hover:text-hoverAction truncate" href=`/propiedad/${propiedad.id}`)= propiedad.titulo
                                     a(class="text-sm text-black font-bold")= propiedad.categoria.nombre
                                     p(class="text-sm text-gray-500 font-bold flex items-center") 
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -37,7 +37,7 @@ block contenido
                                         input(type="hidden" name="_csrf" value= csrfToken)
                                         input(type="submit" class='w-full px-2 py-2 md:py-1 text-xs leading-5 font-semibold rounded cursor-pointer bg-red-100 text-red-800' value="Eliminar")
 
-                                       
+                                    
                 div(class="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6")
                     div(class="flex-1 flex justify-between sm:hidden")
                         a(href=`/mis-propiedades?pagina=${paginaActual - 1}`  class=`${paginaActual === "1" ? 'pointer-events-none' : ''} relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50`) Anterior

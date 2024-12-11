@@ -8,11 +8,11 @@ block contenido
         h1(id="titulo" class="text-4xl my-10 font-extrabold text-center")= propiedad.titulo
 
         div
-            a(href="#" class="font-bold text-gray-600 text-sm") Categoria: 
+            a(href="#" class="font-bold text-textSecondary") Categoria: 
                 span(class="font-normal")= propiedad.categoria.nombre 
 
         div(class="mt-5 md:flex md:gap-4 md:items-start")
-            div(class="md:w-2/3 bg-white shadow rounded-lg") 
+            div(class="md:w-2/3 bg-formBackground shadow rounded-lg") 
                 img(src=`/uploads/${propiedad.imagen}` , alt=`imagen de la propiedad ${propiedad.titulo}`)
 
                 div(class="px-5 py-10 space-y-5")
@@ -20,20 +20,20 @@ block contenido
                     h2(class="text-2xl leading-6 font-bold text-gray-900 ") Informacion propiedad
 
                     div(class="grid grid-cols-1 md:grid-cols-2")
-                        p(class="text-gray-600 font-bold text-xs") WC
+                        p(class="text-textSecondary font-bold text-xs") WC
                             span(class="text-gray-800 block text-lg")= propiedad.wc
-
-                        p(class="text-gray-600 font-bold text-xs") Habitaciones
+        
+                        p(class="text-textSecondary font-bold text-xs") Habitaciones
                             span(class="text-gray-800 block text-lg")= propiedad.habitaciones
                         
-                        p(class="text-gray-600 font-bold text-xs") Estacionamiento
+                        p(class="text-textSecondary font-bold text-xs") Estacionamiento
                             span(class="text-gray-800 block text-lg")= propiedad.estacionamiento
                         
-                        p(class="text-gray-600 font-bold text-xs") Precio
+                        p(class="text-textSecondary font-bold text-xs") Precio
                             span(class="text-gray-800 block text-lg")= propiedad.precio.nombre
         
         
-            aside(class="md:w-1/3 bg-white shadow rounded-lg")
+            aside(class="md:w-1/3 bg-formBackground shadow rounded-lg")
                 h1(class="text-center py-10 leading-6 text-2xl font-bold text-gray-900") Ubicación
 
                 div(class="h-96" id="mapa")
@@ -41,7 +41,7 @@ block contenido
                     p(id="lng" class="hidden")= propiedad.lng
 
                 div(class="p-5") 
-                    p(class="text-gray-600 font-bold text-xs") Direccion 
+                    p(class="text-textSecondary font-bold text-xs") Direccion 
                         span(id="calle" class="text-gray-800 block text-lg")= propiedad.calle  
 
                     
@@ -69,12 +69,12 @@ block contenido
                                     
                                     textarea(id="mensaje", name="mensaje" ,class="w-full px-2 py-2 border border-gray-300 rounded-lg shadow placeholder-gray-400" ,placeholder="Coloca tu mensaje aqui")  
 
-                                    input(type="submit" value="Enviar Mensaje" class="bg-indigo-600 text-white font-bold uppercase text-sm w-full p-2 cursor-pointer")
+                                    input(type="submit" value="Enviar Mensaje" class="bg-action hover:bg-hoverAction     text-white font-bold uppercase text-sm w-full p-2 cursor-pointer")
 
                         else 
                             div(class="flex flex-col items-center justify-center gap-2")
                                 p(class="text-center") Si deseas contactar al vendedor 
-                                a(class="text-indigo-600" href="/auth/crear-cuenta")
+                                a(class="rounded py-2 px-10 bg-action hover:bg-hoverAction text-sm font-bold text-center text-white uppercase my-5 inline-block w-full sm:w-auto" href="/auth/registro") Crear Cuenta
 
 
 block scripts 
