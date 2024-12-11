@@ -5,15 +5,15 @@ header.bg-action.p-4
                 span.font-normal Raíces
 
         nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades") Mi perfil
+            a(href="/mis-propiedades" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border") Mi perfil
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg" value="Cerrar Sesión")    
+                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border" value="Cerrar Sesión")    
 
 
 div(class="bg-action2 py-5 hidden lg:block")
     div(class="container mx-auto flex justify-between")
-        nav(class="flex gap-4 items-center") 
+        nav(class="flex gap-2 items-center px-10") 
             a(href="/categorias/1" class="text-sm font-bold uppercase text-white") Casas
             a(href="/categorias/2" class="text-sm font-bold uppercase text-white") Departamentos
             a(href="/categorias/3" class="text-sm font-bold uppercase text-white") Bodegas

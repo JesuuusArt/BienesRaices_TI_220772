@@ -1,7 +1,7 @@
 
 (function () {
-    const lat = 20.210827;
-    const lng = -98.011579;
+    const lat = 20.210697;
+    const lng =  -98.011447;
     const mapa = L.map('mapa-inicio').setView([lat, lng], 13);
 
     let markers = new L.FeatureGroup().addTo(mapa)
@@ -71,6 +71,21 @@
             markers.addLayer(marker)
         })
     }
+
+    let userMarker = new L.marker([lat, lng], {
+        draggable: true,
+        autoPan: true
+    }).addTo(mapa);
+
+    userMarker.bindPopup(`Lat: ${lat}, Lng: ${lng} `).openPopup();
+
+    userMarker.on('moveend', function (e) {
+        const posicion = e.target.getLatLng(); 
+        const nuevaLat = posicion.lat.toFixed(6);
+        const nuevaLng = posicion.lng.toFixed(6);
+    
+        userMarker.bindPopup(`Lat: ${nuevaLat}, Lng: ${nuevaLng}`).openPopup();
+    });
 
     const filtrarPropiedades = () => {
         const resultado = propiedades.filter(filtrarCategoria).filter(filtrarPrecio)
