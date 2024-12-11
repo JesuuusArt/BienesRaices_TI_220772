@@ -593,12 +593,6 @@ video {
 .h-auto {
   height: auto;
 }
-.h-\[500px\] {
-  height: 500px;
-}
-.max-h-\[600px\] {
-  max-height: 600px;
-}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -791,6 +785,10 @@ video {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.px-20 {
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -822,10 +820,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-.px-20 {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 .pt-10 {
   padding-top: 2.5rem;
