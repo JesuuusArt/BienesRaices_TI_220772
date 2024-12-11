@@ -5,8 +5,11 @@ header.bg-action.p-4
                 span.font-normal Raíces
 
         nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/auth/registro") Crear cuenta 
-            a(href="/auth/login") Iniciar Sesión
+            a(href="/mis-propiedades") Mi perfil
+            form(action="/auth/cerrar-sesion" method="POST")  
+                input(type="hidden" name="_csrf" value= csrfToken)
+                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg" value="Cerrar Sesión")    
+
 
 div(class="bg-action2 py-5 hidden lg:block")
     div(class="container mx-auto flex justify-between")
@@ -16,6 +19,7 @@ div(class="bg-action2 py-5 hidden lg:block")
             a(href="/categorias/3" class="text-sm font-bold uppercase text-white") Bodegas
             a(href="/categorias/4" class="text-sm font-bold uppercase text-white") Terrenos
             a(href="/categorias/5" class="text-sm font-bold uppercase text-white") Cabañas
+            a(href="/categorias/6" class="text-sm font-bold uppercase text-white") Establecimientos
 
         form(action="/buscador" method="POST" class="flex gap-3 items-center") 
             input(type="hidden" name="_csrf" value= csrfToken)
