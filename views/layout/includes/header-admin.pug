@@ -5,8 +5,7 @@ header.bg-action2.p-4
                 span.font-normal Raíces
 
         nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades") Mis propiedades 
-            a(href="") Mi perfil
+            a(href="/mis-propiedades" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border") Mis propiedades 
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg" value="Cerrar Sesión")    
+                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border" value="Cerrar Sesión")    
