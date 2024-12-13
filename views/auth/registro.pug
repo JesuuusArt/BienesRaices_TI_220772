@@ -22,14 +22,17 @@ block contenido
                         label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="email") Email de Registro
                         input#email.w-full.px-4.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu email" type="email" name="email" value= usuario ? usuario.email : '' ) 
                     div 
+                        label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="birthDate") Fecha de Nacimiento
+                        input#birthDate.w-full.px-4.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(type="date" name="birthDate" value= usuario ? usuario.birthDate : '' ) 
+                    div 
                         label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="password") Password
                         input#password.w-full.px-4.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Escribe tu password" type="password" name="password" )        
                     div 
                         label.block.text-sm.uppercase.text-secondaryText.mb-3.font-bold(for="repetir_password") Repetir password
                         input#repetir_password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Repite tu password" type="password" name="repetir_password")         
-                    
+                        
                     div.flex.items-center.justify-between 
                         a.text-sm.text-secondayText(href="/auth/login" class="hover:text-action hover:underline") ¿Ya tienes cuenta? Inicia Sesión
                         a.text-sm.text-secondayText(href="/auth/olvide-password" class="hover:text-action hover:underline") Olvide mi Password 
 
-                    input(class="w-full bg-action hover:bg-hoverAction text-white font-bold py-3 cursor-pointer" type="submit" value="Crear cuenta")    
+                    input(class="w-full bg-action hover:bg-hoverAction text-white font-bold py-3 cursor-pointer" type="submit" value="Crear cuenta") 
