@@ -4,11 +4,16 @@ block contenido
     input(type="hidden" name="_csrf" value=csrfToken)
     .py-10 
         h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
-            span.font-normal.text-primaryText Raices
+            span.font-normal.text-primaryText Raíces
         h2.text-center.text-2xl.font-extrabold= page
-    center
-        .py-8.px-4.shadow-xl.rounded-xl.max-h-space.max-w-xl(class=error ? 'bg-error' : 'bg-success')
-            p.px-5.rounded-lg.w-full.text-white.text-lg.font-bold= msg
-
-            if !error 
-                a(href="/auth/login" class="w-full block bg-action text-white hover:bg-hoverAction font-bold text-sm upercase mt-10 shadow-lg rounded-lg py-2 max-w-96") Iniciar sesión ahora
+    
+    div(class="bg-formBackground shadow-lg py-8 px-6 rounded-lg max-w-md mx-auto mt-6 border border-gray-200")
+        if msg
+            p(class= error ? 'bg-error' : 'bg-success').py-3.px-4.rounded-md.w-full.font-bold.text-center.text-white.uppercase= msg
+        if !error 
+            a(
+                href="/auth/login" 
+                class="w-full inline-block bg-action text-white hover:bg-hoverAction duration-300 ease-in-out font-bold py-3 text-center rounded-lg mt-4 items-center justify-center transform transition-all hover:scale-105"
+            )
+                span.mr-2.text-lg &#x1F511; 
+                | Ya puedes Iniciar Sesión

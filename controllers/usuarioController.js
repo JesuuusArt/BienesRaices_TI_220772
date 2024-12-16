@@ -105,7 +105,7 @@ const registrar = async (req, res) => {
     // Verificar que el resultado este vacio
     if (!resultado.isEmpty()) {
         return res.render('auth/registro', {
-            page: 'Crear cuenta',
+            page: 'Crear Cuenta',
             errores: resultado.array(),
             usuario: {
                 nombre: req.body.nombre,
@@ -126,7 +126,7 @@ const registrar = async (req, res) => {
         return res.render('auth/registro', {
             page: 'Crear cuenta',
             csrfToken: req.csrfToken(),
-            errores: [{ msg: 'El usuario ya esta Registrado' }],
+            errores: [{ msg: 'El Usuario ya esta Registrado' }],
             usuario: {
                 nombre: req.body.nombre,
                 email: req.body.email
@@ -186,7 +186,7 @@ const confirmar = async (req, res) => {
     const usuario = await Usuario.findOne({ where: { token } })
     if (!usuario) {
         return res.render('auth/confirmar-cuenta', {
-            page: 'Error al confirmar tu cuenta',
+            page: 'Error al Confirmar tu Cuenta',
             msg: 'Hubo un error al confirmar tu cuenta, intenta de nuevo',
             error: true
         })
@@ -199,7 +199,7 @@ const confirmar = async (req, res) => {
 
     res.render('auth/confirmar-cuenta', {
         page: 'Cuenta confirmada',
-        msg: 'La cuenta se confirmo correctamente'
+        msg: 'La Cuenta se Confirmo Correctamente'
     })
 
 
