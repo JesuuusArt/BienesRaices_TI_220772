@@ -15,7 +15,7 @@ block contenido
                             div
                                 p.font-bold= mensaje.usuario.nombre  
                                 p.text-gray-800.py-3= mensaje.mensaje
-                                p.text-xs correo: 
+                                p.text-xs Correo: 
                                     span.text-xs= mensaje.usuario.email  
                                 p.text-xs.text-action Enviado: 
                                     span.text-action= formatearFecha( mensaje.createdAt )
@@ -29,7 +29,7 @@ block contenido
                                                 div
                                                     p.font-bold= respuesta.usuario.nombre
                                                     p.text-gray-800.py-3= respuesta.respuesta
-                                                    p.text-xs correo: 
+                                                    p.text-xs Correo: 
                                                         span.text-xs= respuesta.usuario.email  
                                                     p.text-xs.text-action Enviado: 
                                                         span.text-action= formatearFecha(respuesta.createdAt)

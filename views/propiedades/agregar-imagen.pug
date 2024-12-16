@@ -11,7 +11,7 @@ block contenido
             form(id="imagen" class="dropzone border-dashed border-2 w-full min:h-96 h-auto rounded flex-col justify-center items-center" method="POST" action=`/propiedades/agregar-imagen/${propiedad.id}`)
                 input(type="hidden" name="_csrf" value= csrfToken)
 
-            button.w-full.py-3.bg-action.rounded-xl.text-white.font-bold.uppercase.cursor-pointer.mt-5(id="publicar" class="hover:bg-hoverAction transition ease-in-out" type="button") Publicar propiedad
+            button.w-full.py-3.bg-action.rounded-xl.text-white.font-bold.uppercase.cursor-pointer.mt-5(id="publicar" class="hover:bg-hoverAction transition ease-in-out" type="button") Publicar Propiedad
 
 block scripts 
     script(src="/js/agregarImagen.js")
