@@ -3,7 +3,7 @@ extends ../layout/index
 block contenido
     .py-10
         h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
-            span.font-normal.text-primaryText Raices
+            span.font-normal.text-primaryText Raíces
         h2.text-center.text-2xl.font-extrabold= page
 
         if errores
@@ -23,9 +23,8 @@ block contenido
                         input#password.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Ingresa tu contraseña" type="password" name="password" required)
 
                     .flex.items-center.justify-between
-                        a.text-action.text-xs(href="/auth/registro" class="hover:underline hover:text-hoverAction transition duration-300") ¿Aun no tienes una cuenta? Crea una
+                        a.text-action.text-xs(href="/auth/registro" class="hover:underline hover:text-hoverAction transition duration-300") ¿Aún no tienes una cuenta? Crea una
                         a.text-action.text-xs(href="/auth/olvide-password" class="hover:underline hover:text-hoverAction transition duration-300") ¿Olvidaste tu contraseña? Recupérala
-
 
                     input(class="w-full bg-action hover:bg-hoverAction text-white font-bold py-3 cursor-pointer rounded-lg transition duration-300" type="submit" value="Iniciar sesión")
                     
