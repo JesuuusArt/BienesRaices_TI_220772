@@ -1,13 +1,14 @@
 extends ../layout/index
 
 block contenido
-    .py-10
+    input(type="hidden" name="_csrf" value=csrfToken)
+    .py-10 
         h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
-            span.font-normal.text-secondaryText Raíces  
-        h2.text-center.text-2xl.font-extrabold.text-secondaryText= pagina
+            span.font-normal.text-primaryText Raices
+        h2.text-center.text-2xl.font-extrabold= page
+    center
+        .py-8.px-4.shadow-xl.rounded-xl.max-h-space.max-w-xl(class=error ? 'bg-error' : 'bg-success')
+            p.px-5.rounded-lg.w-full.text-white.text-lg.font-bold= msg
 
-    div(class="bg-formBackground shadow py-8 px-4 rounded-lg max-w-md mx-auto") 
-        p(class= error ? 'bg-error' : 'bg-success').py-2.px-5.rounded-lg.w-full.font-bold.text-center.text-white.uppercase= mensaje
-
-        if !error
-            a(href="/auth/login" class="text-center font-bold text-sm inline-block bg-action text-white hover:bg-hoverAction uppercase py-3 rounded-lg mt-4 items-center justify-center") Ya puedes Iniciar Sesión
+            if !error 
+                a(href="/auth/login" class="w-full block bg-action text-white hover:bg-hoverAction font-bold text-sm upercase mt-10 shadow-lg rounded-lg py-2 max-w-96") Iniciar sesión ahora

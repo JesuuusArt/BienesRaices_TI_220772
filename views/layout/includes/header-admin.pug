@@ -1,11 +1,34 @@
-header.bg-action2.p-4 
-    .container.mx-auto.flex.justify-between.items-center 
-        a(href="/")
-            h1.text-2xl.text-white.font-extrabold.text-center Bienes 
-                span.font-normal Raíces
+header.bg-action.px-4 
+    .container.mx-auto.flex.justify-between.items-center
+        a.mr-5(href="/" class="mb-1.5")
+            h1.text-4xl.my-10.font-extrabold.text-center.text-background Bienes 
+                span.font-normal.text-background Raices
 
-        nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border") Mis propiedades 
+        nav(class="my-5 text-sm md:flex md:items-center md:gap-5 font-bold text-white hidden") 
+            a.py-3.px-5.rounded-lg.text-black(href="/mis-propiedades" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Mis propiedades 
+            a.py-3.px-5.rounded-lg.text-black(href="/mis-conversaciones" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Mis conversaciones
+            a.py-3.px-5.rounded-lg.text-black(href="" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Mi perfil
             form(action="/auth/cerrar-sesion" method="POST")  
                 input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border" value="Cerrar Sesión")    
+                input.py-3.px-5.rounded-lg.text-black(type="submit" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out" value="Cerrar Sesión")    
+
+if usuarioAdministrador 
+    div(class="bg-none py-5 hidden lg:block")
+    div(class="container mx-auto flex justify-between")
+        nav(class="flex gap-2 items-center px-5")
+            if !usuarioAdministrador
+                a.mr-5(href="/" class="mb-1.5")
+                    h1.text-2xl.text-action.font-extrabold.text-center.text-2xl Bienes 
+                        span.font-normal.text-black.text-2xl Raíces
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/1" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Casas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/2" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Departamentos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/3" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Bodegas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/4" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Terrenos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/5" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Cabañas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/6" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Establecimientos
+
+        form(action="/buscador" method="POST" class="flex gap-3 items-center") 
+            input(type="hidden" name="_csrf" value= csrfToken)
+            label(for="termino" class="text-sm uppercase font-bold text-gray-700") Busqueda 
+            input(type="text" id="termino" name="termino" placeholder="Buscar propiedades" class="p-2 rounded-lg shadow text-sm border-2 border-gray-200 ml-2")
+            input(type="submit" class="bg-action hover:bg-hoverAction rounded-lg text-white uppercase font-bold py-2 px-5 cursor-pointer text-sm" value="Buscar")

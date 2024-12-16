@@ -6,8 +6,8 @@
 
     let markers = new L.FeatureGroup().addTo(mapa)
     let propiedades = [];
+    
     //Filtros
-
     const filtros = {
         categoria: '',
         precio: ''

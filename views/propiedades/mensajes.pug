@@ -1,27 +1,42 @@
 extends ../layout/admin 
 
 block contenido
-    h2(class="text-2xl font-extrabold text-center my-10")= pagina
+    h2(class="text-2xl font-bold text-center my-10")= page
 
-    a(href="/mis-propiedades" class="rounded py-2 px-10 bg-action hover:bg-hoverAction text-sm font-bold text-center text-white uppercase my-5 inline-block w-full sm:w-auto") Volver
+    a.rounded-lg.py-2.px-10.bg-action.text-sm.font-bold.text-center.text-white.uppercase.my-5.inline-block.w-full(href="/mis-propiedades" class="hover:bg-hoverAction sm:w-auto transition ease-in-out") Volver
 
-    div(class="mx-auto max-w-4xl bg-white shadow")
-
-        if mensajes.length 
+    div.mx-auto.max-w-4xl(style="margin-bottom: 75px;")
+        if mensajes.length
             ul 
                 each mensaje in mensajes 
-                    li(class="border-gray-200 border-b p-5")
-                        p(class="font-bold text-textSecondary") Nombre: 
-                            span(class="font-normal")= mensaje.usuario.nombre
+                    li.border-gray-200.border-b.p-5.mt-5.bg-white.shadow.rounded-xl
+                        .flex
+                            img.rounded-full.mr-5.object-cover.w-24(src=`/profile_images/${mensaje.usuario.image}`)
+                            div
+                                p.font-bold= mensaje.usuario.nombre  
+                                p.text-gray-800.py-3= mensaje.mensaje
+                                p.text-xs correo: 
+                                    span.text-xs= mensaje.usuario.email  
+                                p.text-xs.text-action Enviado: 
+                                    span.text-xs.text-action= formatearFecha( mensaje.createdAt )
+                        .flex.mt-5
+                            if mensaje.respuestas.length
+                                ul
+                                    each respuesta in mensaje.respuestas
+                                        li.mb-5
+                                            .flex
+                                                img.w-24.rounded-full.mr-5(src=`/profile_images/${respuesta.usuario.image}`)
+                                                div
+                                                    p.font-bold= respuesta.usuario.nombre
+                                                    p.text-gray-800.py-3= respuesta.respuesta
+                                                    p.text-xs correo: 
+                                                        span.text-xs= respuesta.usuario.email  
+                                                    p.text-xs.text-action Enviado: 
+                                                        span.text-action= formatearFecha(respuesta.createdAt)
 
-
-                        p(class="font-bold text-textSecondary") Email: 
-                            span(class="font-normal")= mensaje.usuario.email    
-
-                        p(class="font-bold text-textSecondary") Mensaje: 
-                            span(class="font-normal")= mensaje.mensaje
-
-                        p(class="font-bold text-textSecondary") Enviado: 
-                            span(class="font-normal")= formatearFecha( mensaje.createdAt )       
+                        form(action=`/mensajes/responder/${mensaje.id}` method="POST")
+                            input(type="hidden" name="_csrf" value= csrfToken)
+                            textarea.w-full.p-2.border.border-gray-300.rounded-lg.my-5.resize-none(name="respuesta" placeholder="Escribe una respuesta")
+                            button.bg-action.text-white.uppercase.text-sm.font-bold.py-2.px-10.rounded-lg(type="submit" class="hover:bg-hoverAction") Enviar Respuesta
         else 
-            p(class="text-center text-gray-600 p-5") No hay Mensajes   
+            p(class="text-center text-gray-600 p-5") No hay mensajes

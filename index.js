@@ -7,45 +7,45 @@ import appRoutes from './routes/appRoutes.js'
 import apiRoutes from './routes/apiRoutes.js'
 import db from './config/db.js'
 
-//crear la app
+//? Crear la app
 const app = express()
 
-//habilitar lectura de datos de formularios
+//? Habilitar lectura de datos de formularios
 
 app.use(express.urlencoded({ extend: true }))
 
-//Habilitar cookie Parser
+//? Habilitar cookie Parser
 app.use(cookieParser())
 
-//habilitar csurf
+//? Habilitar csurf
 app.use(csurf({ cookie: true }))
 
-//conexion a la bd
+//? Conexion a la bd
 try {
     await db.authenticate();
     db.sync()
-    console.log('Conexion a la bd exitosa!!!')
+    console.log('Conexión exitosa a la bd')
 } catch (error) {
     console.log(error)
 }
 
-
-//habilitar pug
+//? Habilitar pug
 app.set('view engine', 'pug')
 app.set('views', './views')
 
-//Carpeta publica
+//? Carpeta publica
 app.use(express.static('public'))
+app.use(express.static('assets'))
 
 
-//roting
+//? Routing
 app.use('/', appRoutes)
 app.use('/auth', usuarioRoutes)
 app.use('/', propiedadesRoutes)
 app.use('/api', apiRoutes)
 
-//definir un puerto y arrancar el proyecto
+//? Definir un puerto y arrancar el proyecto
 const port = 3000;
 app.listen(port, () => {
-    console.log(`El servidor esta funcionando en el puerto ${port}`)
+    console.log(`El servidor se esta ejecutando en el puerto ${port}`)
 });

@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize'
 import db from '../config/db.js'
+import Usuario from './Usuario.js';
 
 const Propiedad = db.define('propiedades', {
     id: {
@@ -28,6 +29,14 @@ const Propiedad = db.define('propiedades', {
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    renta: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true
+    },
+    venta: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true
+    },
     calle: {
         type: DataTypes.STRING(60),
         allowNull: false
@@ -49,8 +58,6 @@ const Propiedad = db.define('propiedades', {
         allowNull: false,
         defaultValue: false
     }
-
-
 });
 
 export default Propiedad

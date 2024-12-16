@@ -1,11 +1,17 @@
-div(class="bg-formBackground shadow rounded-lg")
+div(class="bg-formBackground shadow-lg rounded-xl")
+    .flex.relative.px-4.py-3
+        img(src=`/profile_images/${propiedad.usuario.image}` class="w-14 rounded-full")
+        p.absolute.left-24 Publicado por
+        h1.absolute.font-bold.left-24.top-8.text-lg= propiedad.usuario.nombre
     img(class="object-cover h-72 w-full"  src=`/uploads/${propiedad.imagen}` alt=`imagen de la propiedad ${propiedad.titulo}`)
-    div(class="p-5 space-y-5")
+    div(class="p-5 space-y-3")
         h1(class="text-xl font-bold")= propiedad.titulo
-        p(class="text-sm text-textSecondary") Habitaciones:  
-                                span(class="text-gray-800 font-bold")= propiedad.habitaciones
-        p(class="text-sm text-textSecondary") WC:  
-                                span(class="text-gray-800 font-bold")= propiedad.wc
-        p(class="text-sm text-textSecondary") Precio:  
-                                span(class="text-gray-800 font-bold")= propiedad.precio.nombre 
-        a(href=`/propiedad/${propiedad.id}` class="bg-action hover:bg-hoverAction w-full text-center block font-bold text-white p-2 uppercase rounded") Ver Propiedad          
+        p(class="text-sm text-gray-600") Habitaciones:  
+            span(class="text-gray-800 font-bold")= propiedad.habitaciones
+        p(class="text-sm text-gray-600") WC:  
+            span(class="text-gray-800 font-bold")= propiedad.wc
+        p(class="text-lg text-gray-600 font-bold")= propiedad.venta ? 'En venta' : 'En renta'
+        p(class="text-sm text-gray-600")= propiedad.venta ? 'Precio: ' : 'Renta: '
+            span(class="text-gray-800 font-bold")= propiedad.precio.nombre
+        center
+            a.bg-action.w-48.mt-5.text-center.block.font-bold.text-white.p-2.uppercase.rounded-lg(href=`/propiedad/${propiedad.id}` class=`hover:bg-hoverAction`) Ver Propiedad          

@@ -6,7 +6,6 @@ const Mensaje = db.define('mensajes', {
       type: DataTypes.STRING(200),
       allowNull: false
    }
-
-});
+})
 
 export default Mensaje
