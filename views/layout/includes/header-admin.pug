@@ -13,7 +13,7 @@ header.bg-action.px-4
                 input.py-3.px-5.rounded-lg.text-black(type="submit" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out" value="Cerrar Sesión")    
 
 if usuarioAdministrador 
-    div(class="bg-formBackground py-5 hidden lg:block")
+    div(class=" py-5 hidden lg:block")
     div(class="container mx-auto flex justify-between")
         nav(class="flex gap-2 items-center px-5")
             if !usuarioAdministrador
@@ -22,10 +22,10 @@ if usuarioAdministrador
                         span.font-normal.text-black.text-2xl Raíces
             a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/1" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Casas
             a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/2" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Departamentos
-            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/3" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Bodegas
-            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/4" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Terrenos
-            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/5" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Cabañas
-            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/6" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Establecimientos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/3" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Establecimientos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/4" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Bodegas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/5" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Terrenos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/6" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Cabañas
 
         form(action="/buscador" method="POST" class="flex gap-3 items-center") 
             input(type="hidden" name="_csrf" value= csrfToken)
