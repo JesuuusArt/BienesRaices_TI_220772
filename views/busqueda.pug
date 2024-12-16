@@ -7,7 +7,7 @@ block contenido
         if propiedades.length
             div(class="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14")
                 each propiedad in propiedades
-                    include ./templates/card
-
+                    if propiedad.publicado
+                        include ./templates/card
         else 
-            p(class="text-center text-textSecondary text-sm py-10") No Hay Resultados
+            p(class="text-center text-gray-800 text-md py-10 font-semibold") No hay resultados

@@ -1,0 +1,20 @@
+extends ../layout/index
+
+block styles
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css")
+    meta(name="csrf-token" content= csrfToken)
+block contenido
+    div
+        h1.text-4xl.my-10.font-extrabold.text-center.text-action Bienes 
+            span.font-normal.text-primaryText Raices
+        h2.text-center.text-2xl.font-extrabold Añade Tu Imagen de Perfil
+
+        div.bg-bgg.shadow-xl.py-8.px-4.rounded-2xl.mx-auto.max-w-4xl.my-10(class="md:px-10")
+            form(id="fotoperfil" class="dropzone border-dashed border-2 w-full min:h-96 h-auto rounded flex-col justify-center items-center" method="POST" action="/auth/agregar-imagen")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                input(type="hidden" name="usuarioId" value=usuarioId)
+
+            button#subir-continuar.w-full.py-3.bg-action.rounded-xl.text-white.font-bold.uppercase.cursor-pointer.mt-5(class="hover:bg-hoverAction transition ease-in-out" type="button") Registrarse
+
+block scripts 
+    script(src="/js/agregarFotoPerfil.js")

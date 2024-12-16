@@ -6,6 +6,7 @@ export default {
       colors: {
         background: '#ffffff', // Fondo principal
         formBackground: '#faf5f0', // Fondo formularios 
+        bgg: '#e6dfd6',
         primaryText: '#000000', // Texto principal
         secondaryText: '#636363', // Textos secundarios
         action: '#ee7956', // Botones de acción

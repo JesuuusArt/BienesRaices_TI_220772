@@ -2,21 +2,19 @@ import Jwt from 'jsonwebtoken'
 import Usuario from '../models/Usuario.js'
 
 const identificarUsuario = async (req, res, next) => {
-
-    //identificar si hay un token
+    // Identificar si hay un token
     const {_token} = req.cookies
     if (!_token) {
         req.usuario = null
         return next()
     }
 
-    //comprobar el token
-
+    // Comprobar el token
     try {
         const decoded = Jwt.verify(_token, process.env.JWT_SECRET)
         const usuario = await Usuario.scope('eliminarPassword').findByPk(decoded.id)
 
-        //Almacenar el usuario al req
+        // Almacenar el usuario al req
         if (usuario) {
             req.usuario = usuario
         } 

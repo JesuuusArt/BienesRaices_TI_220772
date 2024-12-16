@@ -6,6 +6,9 @@ const categorias = [
         nombre: 'Departamento'
     },
     {
+        nombre: 'Establecimiento'
+    },
+    {
         nombre: 'Bodega'
     },
     {
@@ -13,9 +16,6 @@ const categorias = [
     },
     {
         nombre: 'Cabaña'
-    },
-    {
-        nombre: 'Establecimiento'
     }
 ]
 

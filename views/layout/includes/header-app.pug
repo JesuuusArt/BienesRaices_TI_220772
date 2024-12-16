@@ -1,30 +1,26 @@
-header.bg-action.p-4 
-    .container.mx-auto.flex.justify-between.items-center 
-        a(href="/")
-            h1.text-2xl.text-white.font-extrabold.text-center Bienes 
-                span.font-normal Raíces
+header.bg-action.px-4
+    .container.mx-auto.flex.justify-between.items-center
+        a.mr-5(href="/" class="mb-1.5")
+            h1.text-4xl.my-10.font-extrabold.text-center.text-background Bienes 
+                span.font-normal.text-background Raices
 
-        nav(class="my-5 text-sm md:flex md:items-center md:gap-3 font-bold text-white hidden") 
-            a(href="/mis-propiedades" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border") Mi perfil
-            form(action="/auth/cerrar-sesion" method="POST")  
-                input(type="hidden" name="_csrf" value= csrfToken)
-                input(type="submit" class="bg-action hover:bg-hoverAction py-2 px-10 rounded-lg border" value="Cerrar Sesión")    
+        nav(class="my-5 text-sm md:flex md:items-center md:gap-5 font-bold text-white hidden")
+            a.py-3.px-5.rounded-lg.text-black(href="/auth/registro" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Crear cuenta 
+            a.py-3.px-5.rounded-lg.text-black(href="/auth/login" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Iniciar Sesión
 
-
-div(class="bg-action2 py-5 hidden lg:block")
+div(class="bg-none py-5 hidden lg:block")
     div(class="container mx-auto flex justify-between")
-        nav(class="flex gap-2 items-center px-10") 
-            a(href="/categorias/1" class="text-sm font-bold uppercase text-white") Casas
-            a(href="/categorias/2" class="text-sm font-bold uppercase text-white") Departamentos
-            a(href="/categorias/3" class="text-sm font-bold uppercase text-white") Bodegas
-            a(href="/categorias/4" class="text-sm font-bold uppercase text-white") Terrenos
-            a(href="/categorias/5" class="text-sm font-bold uppercase text-white") Cabañas
-            a(href="/categorias/6" class="text-sm font-bold uppercase text-white") Establecimientos
+        nav(class="flex gap-2 items-center px-5")
+            a.mr-5(href="/" class="mb-1.5 ")
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/1" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Casas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/2" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Departamentos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/3" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Bodegas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/4" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Terrenos
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/5" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Cabañas
+            a.py-3.px-5.rounded-lg.text-sm.font-bold.uppercase.text-gray-700(href="/categorias/6" class="hover:cursor-pointer hover:bg-hoverAction hover:text-white transition ease-in-out") Establecimientos
 
         form(action="/buscador" method="POST" class="flex gap-3 items-center") 
             input(type="hidden" name="_csrf" value= csrfToken)
-            label(for="termino" class="text-sm uppercase font-bold text-white") Busqueda 
-            
-            input(type="text" id="termino" name="termino" placeholder="Buscar propiedades" class="p-2 rounded-lg shadow text-sm")
-
-            input(type="submit" class="bg-action hover:bg-hoverAction rounded-lg text-white uppercase font-bold p-2 cursor-pointer text-sm" value="Buscar" )
+            label(for="termino" class="text-sm uppercase font-bold text-gray-700") Busqueda 
+            input(type="text" id="termino" name="termino" placeholder="Buscar propiedades" class="p-2 rounded-lg shadow text-sm border-2 border-gray-200 ml-2")
+            input(type="submit" class="bg-action hover:bg-hoverAction rounded-lg text-white uppercase font-bold py-2 px-5 cursor-pointer text-sm" value="Buscar" )

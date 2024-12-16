@@ -1,6 +1,6 @@
 import express from 'express'
 import { body } from 'express-validator'
-import { admin, crear, guardar, agregarImagen, almacenarImagen, editar, guardarCambios, eliminar, mostrarPropiedad, enviarMensaje, verMensajes, cambiarEstado } from '../controllers/propiedadesController.js'
+import { admin, crear, guardar, agregarImagen, almacenarImagen, editar, guardarCambios, eliminar, mostrarPropiedad, enviarMensaje, verMensajes, cambiarEstado, responderMensaje, obtenerConversaciones } from '../controllers/propiedadesController.js'
 import protegerRuta from '../middleware/protegerRuta.js'
 import upload from '../middleware/subirImagen.js'
 import identificarUsuario from '../middleware/identificarUsuario.js'
@@ -19,11 +19,18 @@ router.post('/propiedades/crear', protegerRuta,
     body('habitaciones').isNumeric().withMessage('Selecciona la cantidad de habitaciones'),
     body('estacionamiento').isNumeric().withMessage('Selecciona la cantidad de estacionamientos'),
     body('wc').isNumeric().withMessage('Selecciona la cantidad de wc'),
+    body().custom((_, { req }) => {
+        if (!req.body['renta'] && !req.body['venta']) {
+            throw new Error('Especifica si la propiedad se vende o se renta');
+        }
+        return true;
+    }),
     body('lat').notEmpty().withMessage('Ubica la propiedad en el mapa'),
     guardar)
 router.get('/propiedades/agregar-imagen/:id',
     protegerRuta,
-    agregarImagen)
+    agregarImagen
+)
 
 router.post('/propiedades/agregar-imagen/:id',
     protegerRuta,
@@ -33,7 +40,8 @@ router.post('/propiedades/agregar-imagen/:id',
 
 router.get('/propiedades/editar/:id',
     protegerRuta,
-    editar)
+    editar
+)
 
 router.post('/propiedades/editar/:id',
     protegerRuta,
@@ -47,7 +55,8 @@ router.post('/propiedades/editar/:id',
     body('estacionamiento').isNumeric().withMessage('Selecciona la cantidad de estacionamientos'),
     body('wc').isNumeric().withMessage('Selecciona la cantidad de wc'),
     body('lat').notEmpty().withMessage('Ubica la propiedad en el mapa'),
-    guardarCambios)
+    guardarCambios
+)
 
 router.post('/propiedades/eliminar/:id',
     protegerRuta,
@@ -56,25 +65,38 @@ router.post('/propiedades/eliminar/:id',
 
 router.put('/propiedades/:id',
     protegerRuta,
-    cambiarEstado)
+    cambiarEstado
+)
 
-
-//Area publica
-
+//? Area publica
 router.get('/propiedad/:id',
     identificarUsuario,
-    mostrarPropiedad)
+    mostrarPropiedad
+)
 
-
-//Almacenar los mensajes
+//? Almacenar los mensajes
 router.post('/propiedad/:id',
     identificarUsuario,
     body('mensaje').isLength({ min: 10 }).withMessage('El Mensaje no puede ir vacio o es muy corto'),
-    enviarMensaje)
+    enviarMensaje
+)
 
+//? Ver los mensajes
 router.get('/mensajes/:id',
     protegerRuta,
     verMensajes
 )
+
+//? Responder a los mensajes
+router.post('/mensajes/responder/:id',
+    protegerRuta,
+    responderMensaje
+)
+
+//? Ver mis conversaciones
+router.get('/mis-conversaciones',
+    protegerRuta,
+    obtenerConversaciones
+);
 
 export default router

@@ -1,0 +1,42 @@
+extends ../layout/admin 
+
+block contenido
+    h2.text-2xl.font-bold.text-center= page
+
+    a.rounded-lg.py-2.px-10.bg-action.text-sm.font-bold.text-center.text-white.uppercase.my-5.inline-block.w-full(href="/mis-propiedades" class="hover:bg-hoverAction sm:w-auto transition ease-in-out") Volver
+
+    div.mx-auto.max-w-4xl(style="margin-bottom: 75px;")
+        if mensajes.length
+            ul 
+                each mensaje in mensajes 
+                    li.border-gray-200.border-b.p-5.mt-5.bg-formBackground.shadow.rounded-xl
+                        .flex
+                            img.rounded-full.mr-5.object-cover.w-24(src=`/profile_images/${mensaje.usuario.image}`)
+                            div
+                                p.font-bold= mensaje.usuario.nombre  
+                                p.text-gray-800.py-3= mensaje.mensaje
+                                p.text-xs correo: 
+                                    span.text-xs= mensaje.usuario.email  
+                                p.text-xs.text-action Enviado: 
+                                    span.text-action= formatearFecha( mensaje.createdAt )
+                        .flex.mt-5
+                            if mensaje.respuestas.length
+                                ul
+                                    each respuesta in mensaje.respuestas
+                                        li.mb-5
+                                            .flex
+                                                img.w-24.rounded-full.mr-5(src=`/profile_images/${respuesta.usuario.image}` alt=`Perfil de ${respuesta.usuario.nombre}`)
+                                                div
+                                                    p.font-bold= respuesta.usuario.nombre
+                                                    p.text-gray-800.py-3= respuesta.respuesta
+                                                    p.text-xs correo: 
+                                                        span.text-xs= respuesta.usuario.email  
+                                                    p.text-xs.text-action Enviado: 
+                                                        span.text-action= formatearFecha(respuesta.createdAt)
+
+                        form(action=`/mensajes/responder/${mensaje.id}` method="POST")
+                            input(type="hidden" name="_csrf" value= csrfToken)
+                            textarea.w-full.p-2.border.border-gray-300.rounded-lg.my-5.resize-none(name="respuesta" placeholder="Escribe una respuesta")
+                            button.bg-action.text-white.uppercase.text-sm.font-bold.py-2.px-10.rounded-lg(type="submit" class="hover:bg-hoverAction") Enviar Respuesta
+        else 
+            p.text-center.text-gray-600.p-5 No tienes ninguna conversacion
